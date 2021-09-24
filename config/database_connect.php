@@ -1,16 +1,21 @@
 <?php
-    define("SERVER_HOST", "localhost");
-    define("SERVER_NAME", "root");
-    define("SERVER_PASSWORD", "");
-    define("DATABASE_NAME", "habit_tracker");
-
+    require "main_constants.php";
 
     $data_base = new mysqli(SERVER_HOST, SERVER_NAME, SERVER_PASSWORD);
-    
-    if ($data_base -> connect_error) {
-        die("data_baseection failed: " . $data_base -> connect_error);
-    }
     $data_base -> query("CREATE DATABASE IF NOT EXISTS ".DATABASE_NAME);
+    $data_base = new mysqli(SERVER_HOST, SERVER_NAME, SERVER_PASSWORD, DATABASE_NAME);
+
+    $day_list = "";
+    for ($i=0; $i < NUMBER_COLUMNS; $i++) { 
+        $day_list .= "`day_".($i+1)."` varchar(20) NOT NULL DEFAULT 'false', ";
+    }
+
+    $data_base -> query("CREATE TABLE IF NOT EXISTS `".TABLE_NAME."` (
+        `id` int not null AUTO_INCREMENT,
+        `text` varchar(50), ".
+        $day_list
+        ."PRIMARY KEY (`id`)
+    )");
 
     $data_base -> close();
 ?>
