@@ -35,8 +35,6 @@ body{
     user-select: none;
     
 
-
-
     margin: 0px 20px;
 }
 
@@ -54,10 +52,17 @@ body{
     background-color: #4c6969;
 } */
 
+.box[data-type='true']{
+    background-color: #ff0000;
+    /* opacity: 0.5; */
+}
+
+
 .main_table td[data-type='disabled']{
     background-color: #292929;
     /* opacity: 0.5; */
 }
+
 input[type="submit"]{
     background-color: #ffffff;
     color: #000000;
