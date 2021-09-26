@@ -1,6 +1,6 @@
 :root{
     --bg_body: #111111;
-    --color_body: #ffffff;
+    --color_white: #ffffff;
 }
 
 *{
@@ -19,22 +19,18 @@ html, body, .main{
 
 body{
     background-color: var(--bg_body);
-    color: var(--color_body);
+    color: var(--color_white);
 }
 
 .main_table{
-    /* background-color: aqua; */
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    /* width: 100%; */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    
-
     margin: 0px 20px;
 }
 
@@ -48,34 +44,42 @@ body{
     border-bottom: 1px dotted #dddddd;
 }
 
-/* .main_table td:hover{
-    background-color: #4c6969;
-} */
-
 .box[data-type='true']{
-    background-color: #ff0000;
-    /* opacity: 0.5; */
+    background-color: #0b3ab1;
 }
-
 
 .main_table td[data-type='disabled']{
     background-color: #292929;
-    /* opacity: 0.5; */
 }
 
-input[type="submit"]{
-    background-color: #ffffff;
+.button{
+    background-color: var(--color_white);
     color: #000000;
     border: none;
-    padding: 5px 25px;
-    border-radius: 3px;
-    font-size: 16px;
-    margin: 10px 0px;
-
+    font-size: 17px;
+    width: 48px !important;
+    height: 48px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-input[type="submit"]:hover{
-    background-color: #d4d4d4;
+.add{
+    background-color: #0b740b;
+    color: var(--color_white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.add:hover{
+    background-color: #095f09;
+}
+
+.remuve{
+    background-color: #8e0000;
+    color: var(--color_white);
+}
+
+.remuve:hover{
+    background-color: #7a0101;
 }
 
 .main_table__top th {
@@ -100,7 +104,7 @@ input[type="submit"]:hover{
     width: 200px;
     height: 48px;
     background-color: transparent;
-    color: #ffffff;
+    color: var(--color_white);
     letter-spacing: 0.6px;
 }
 
@@ -109,10 +113,3 @@ input[type="submit"]:hover{
     height: auto;
     padding: 0px;
 }
-
-/* .main tr input[type="hidden"]{
-    background-color: aqua;
-}  */
-/* .main_table__top__void {
-
-} */

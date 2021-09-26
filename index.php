@@ -20,8 +20,7 @@
                 <?php for($i=0; $i<NUMBER_COLUMNS; $i++) echo "<th>".($i<9 ? "0".$i+1: $i+1)."</th>"; ?>
             </tr>
 
-
-            <form action="./server_forms/edit.php" method = "get" id="edit">
+            <form id="edit">
                 <?php
                     $data_base = new mysqli(SERVER_HOST, SERVER_NAME, SERVER_PASSWORD, DATABASE_NAME);
                     $table_data = $data_base -> query("SELECT * FROM ". TABLE_NAME);
@@ -32,13 +31,14 @@
                             echo "<td>".$row["text"]."</td>";
                             for($i=0; $i<NUMBER_COLUMNS; $i++) {
                                 echo "<td class='box' data-type='".$row["day_".($i+1)]."' >
-
-                                <input type='hidden' name='id' value='".$row["id"]."'>
-                                <input type='hidden' name='day' value='"."day_".($i+1)."'>
-                                <input type='hidden' name='check' value='".$row["day_".($i+1)]."'>
-
+                                    <input type='hidden' name='id' value='".$row["id"]."'>
+                                    <input type='hidden' name='day' value='"."day_".($i+1)."'>
+                                    <input type='hidden' name='check' value='".$row["day_".($i+1)]."'>
                                 </td>";
                             }
+                            echo "<td style='border: 1px dotted #dddddd; padding: 0px;'>
+                                <input type='button' value='-' class='button remuve' data-id='".$row["id"]."'>
+                            </td>";
                             echo "</tr>";
                         }
                     }
@@ -46,14 +46,14 @@
                 ?>
             </form>
 
-
             <tr class="main_table__form">
-                <form action="./server_forms/add.php" method = "get">
+                <form action="./server_actions/add.php" method = "get" autocomplete="off">
                     <td><input type="text" name="text" required placeholder="Add new habit" minlength="2" maxlength="50"></td>
                     <?php
                         for ($i=0; $i < NUMBER_COLUMNS; $i++) echo "<td data-type='disabled'><input type='hidden' value='disabled'></td>";
                     ?>
-                    <input type="submit" value="Add">
+                    <td style="border: 1px dotted #dddddd;"><input type="submit" value="+" class="button add"></td>
+                    
                 </form>
             </tr>
         </table>
