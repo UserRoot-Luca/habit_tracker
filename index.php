@@ -17,7 +17,7 @@
         <table class="main_table">
             <tr class="main_table__top">
                 <th class="main_table__top__void">&nbsp;</th>
-                <?php for($i=0; $i<NUMBER_COLUMNS; $i++) echo "<th>".($i<9 ? "0".$i+1: $i+1)."</th>"; ?>
+                <?php for($i=0; $i<NUMBER_COLUMNS; $i++) echo "<th style='background-color: #".($i+1== date("d") ? "cc7600" : "transparent").";'>".($i<9 ? "0".$i+1: $i+1)."</th>"; ?>
             </tr>
 
             <form id="edit">
