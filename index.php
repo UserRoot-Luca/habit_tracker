@@ -16,8 +16,8 @@
     <div class="main">
         <table class="main_table">
             <tr class="main_table__top">
-                <th class="main_table__top__void">&nbsp;</th>
-                <?php for($i=0; $i<NUMBER_COLUMNS; $i++) echo "<th style='background-color: #".($i+1== date("d") ? "cc7600" : "transparent").";'>".($i<9 ? "0".$i+1: $i+1)."</th>"; ?>
+                <th class="main_table__top__month"><?php echo date('F'); ?></th>
+                <?php for($i=0; $i<NUMBER_COLUMNS; $i++) echo "<th ".($i+1== date("d") ? "class='today'" : "").">".($i<9 ? "0".$i+1: $i+1)."</th>"; ?>
             </tr>
 
             <form id="edit">
@@ -36,7 +36,7 @@
                                     <input type='hidden' name='check' value='".$row["day_".($i+1)]."'>
                                 </td>";
                             }
-                            echo "<td style='border: 1px dotted #dddddd; padding: 0px;'>
+                            echo "<td class='options_button'>
                                 <input type='button' value='-' class='button remuve' data-id='".$row["id"]."'>
                             </td>";
                             echo "</tr>";

@@ -40,3 +40,10 @@ for(let i = 0; i < remuve.length; i++) {
         }
     })
 }
+
+
+if (navigator.userAgent.indexOf("Firefox") != -1) {
+    let options_button = document.getElementsByClassName('options_button');
+    for(let i = 0; i < options_button.length; i++) 
+        options_button[i].children[0].style.height = `${options_button[i].clientHeight}px`;  
+}
